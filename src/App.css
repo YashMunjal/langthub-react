@@ -1,38 +1,56 @@
-.App {
-  text-align: center;
+
+body{
+  background: #1a1b1e;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.profile-card {
+  width: 300px;
+  height: 200px;
+  margin: 80px auto;
+  background: #1a1b1e;
+  box-shadow: -10px -10px 20px #242529, 10px 10px 10px black, 10px 10px 10px #151518;
+  border-radius: 25px;
+  color: #ffffff;
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: .2s ease-in-out;
+  transition: .4s ease-in-out;
+}
+.profile-card:hover {
+  -webkit-animation: sqw 2s infinite;
+          animation: sqw 2s infinite;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@-webkit-keyframes sqw {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes sqw {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
