@@ -17,11 +17,10 @@ function App() {
     if(isFirstRun.current)
     {
       isFirstRun.current=false;
+      setQuery('yashmunjal');
       return;
     }
-    else{
     getProfiles();
-    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profilequery]);
 
@@ -51,12 +50,14 @@ function App() {
   //Main app
   return (
     <div className="App">
-
+    <h1 className="main-title">Lang-thub</h1>
       <form className="search-form" onSubmit={getSearch}>
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
-      <ProfileCard name={profile.login} dp={profile.avatar_url}></ProfileCard>
+      <div class="content">
+      <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
+      </div>  
     </div>
   );
 }
