@@ -56,7 +56,7 @@ function App() {
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
-      <ProfileCard ></ProfileCard>
+      <ProfileCard name={profile.login} dp={profile.avatar_url}></ProfileCard>
     </div>
   );
 }
