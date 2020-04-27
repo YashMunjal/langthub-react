@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef} from 'react';
 import ProfileCard from './components/profileCard'
 import './App.css';
 
@@ -9,7 +9,21 @@ function App() {
   const [profilequery, setQuery] = useState('');
 
   //api endpoints
-  const profileRequest = `https://api.github.com/users/yashmunjal`
+  const profileRequest = `https://api.github.com/users/${profilequery}`
+
+  //getting profile
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    if(isFirstRun.current)
+    {
+      isFirstRun.current=false;
+      return;
+    }
+    else{
+    getProfiles();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [profilequery]);
 
   //Get profiles
 
@@ -19,11 +33,6 @@ function App() {
     setProfile(data);
     console.log(data);
   }
-  //getting profile
-  useEffect(() => {
-    getProfiles();
-  },[]);
-
 
   //update search
   const updateSearch = e => {
@@ -31,7 +40,7 @@ function App() {
   }
 
 
-  
+
   //Get search
   const getSearch = e => {
     e.preventDefault();
