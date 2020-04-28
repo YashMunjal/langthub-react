@@ -1,7 +1,8 @@
 import React, { useEffect, useState,useRef} from 'react';
 import ProfileCard from './components/profileCard'
 import './App.css';
-
+import axios from 'axios';
+import Repos from './components/reposArea'
 function App() {
   //Set states
   const [profile, setProfile] = useState([]);
@@ -27,19 +28,21 @@ function App() {
   //Get profiles
 
   const getProfiles = async () => {
-    const response = await fetch(profileRequest);
-    const data = await response.json();
-    setProfile(data);
-    console.log(data);
+    const response = await axios.get(profileRequest,{
+      headers: {
+        Authorization: `Bearer 1873053e3074d5dd48a987420994b84d49f090ea`,
+        "Content-Type": "application/json"
+    },
+    });
+    setProfile(response.data);
+    console.log(response.data);
+    
   }
 
   //update search
   const updateSearch = e => {
     setSearch(e.target.value);
   }
-
-
-
   //Get search
   const getSearch = e => {
     e.preventDefault();
@@ -55,8 +58,9 @@ function App() {
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
-      <div class="content">
+      <div className="content">
       <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
+      <Repos></Repos>
       </div>  
     </div>
   );

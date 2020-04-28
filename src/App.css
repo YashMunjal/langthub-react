@@ -40,8 +40,20 @@ body {
   height: 30px;
 }
 
+
+/* ---- distinction -----------*/
+
+.wrapper .content{
+  display: flex;
+  flex-direction: row;
+}
+
+/*-----profile card-----*/
+
+
 .profile-card {
-  width: 100%;
+  border:1px solid red;
+  width: 50vw;
   height: 100vh;
   display: -webkit-box;
   display: flex;
@@ -51,9 +63,16 @@ body {
   -webkit-box-direction: normal;
   flex-direction: column;
   -webkit-box-pack: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-family: 'Open Sans', sans-serif;
   font-size: 100%;
+  flex:1;
+}
+@media(max-width:586px)
+{
+  .profile-card{
+    width:100vw;
+  }
 }
 
 .wrapper {
@@ -180,4 +199,13 @@ body {
   font-size: 1em;
   margin-top: 1.3em;
   margin-bottom: .2em;
+}
+
+/* ----- repo area---*/
+
+.repo-area {
+  width:50vw;
+  border:1px solid white;
+  height:100vh;
+  flex:1;
 }
