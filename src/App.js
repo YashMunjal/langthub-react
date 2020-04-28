@@ -36,7 +36,6 @@ function App() {
     });
     setProfile(response.data);
     console.log(response);
-    
   }
 
   //update search
@@ -60,8 +59,7 @@ function App() {
       </form>
       <div className="content">
         <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
-        <Repos>
-          <p>Hello</p>
+        <Repos name={profile.login}>
         </Repos>
       </div>  
     </div>

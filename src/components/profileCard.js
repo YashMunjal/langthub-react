@@ -9,7 +9,7 @@ const profileCard = ({ name, dp, bio }) => {
                     <img alt="profile" src={dp} className="thumbnail"></img>
                     <h2 className="name">{name}</h2>
                     <p className="description">{bio}</p>
-                    <button type="button" className="btn">Check Repos</button>
+                    <button type="button" className="btn" >Check Repos</button>
                 </div>
                 <p className="language">Top Languages</p>
                 <div className="social-icons">
@@ -32,6 +32,7 @@ const profileCard = ({ name, dp, bio }) => {
         </div>
     );
 }
+
 export default profileCard;
 
 
