@@ -30,12 +30,12 @@ function App() {
   const getProfiles = async () => {
     const response = await axios.get(profileRequest,{
       headers: {
-        Authorization: `Bearer 1873053e3074d5dd48a987420994b84d49f090ea`,
+        Authorization: `Bearer 61368dbbcbb5042c2508d4434fa4ceca24f45b07 `,
         "Content-Type": "application/json"
     },
     });
     setProfile(response.data);
-    console.log(response.data);
+    console.log(response);
     
   }
 
@@ -59,8 +59,10 @@ function App() {
         <button className="search-button" type="submit">Search</button>
       </form>
       <div className="content">
-      <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
-      <Repos></Repos>
+        <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
+        <Repos>
+          <p>Hello</p>
+        </Repos>
       </div>  
     </div>
   );
