@@ -1,7 +1,10 @@
 const showRepo = (state='yashmunjal',action)=>{
     switch(action.type){
         case 'CLICKED':
-            return state;
+            return [
+                state,
+                action.payload
+            ];
         default :
             return state;
     }

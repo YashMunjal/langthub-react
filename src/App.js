@@ -4,6 +4,9 @@ import './App.css';
 import axios from 'axios';
 import Repos from './components/reposArea'
 import {useSelector,useDispatch} from 'react-redux'
+import {showRepo} from './actions/index'
+
+
 function App() {
   //Set states
   const [profile, setProfile] = useState([]);
@@ -50,11 +53,12 @@ function App() {
   }
   //Redux work
   const btnClick=useSelector(state=>state.showRepo);
-
+  const dispatch=useDispatch();
   //Main app
   return (
     <div className="App">
     <h1 className="main-title">Lang-thub {btnClick}</h1>
+    <button className="search-button" onClick={()=>dispatch(showRepo(profile.login))}>+</button>
       <form className="search-form" onSubmit={getSearch}>
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>

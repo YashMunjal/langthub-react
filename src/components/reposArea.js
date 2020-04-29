@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 
 const repos = ({name})=>{
-    const repoRequest=`https://api.github.com/users/${name}/repos`
 
 
     return(
