@@ -3,6 +3,7 @@ import ProfileCard from './components/profileCard'
 import './App.css';
 import axios from 'axios';
 import Repos from './components/reposArea'
+import {useSelector,useDispatch} from 'react-redux'
 function App() {
   //Set states
   const [profile, setProfile] = useState([]);
@@ -30,7 +31,6 @@ function App() {
   const getProfiles = async () => {
     const response = await axios.get(profileRequest,{
       headers: {
-        Authorization: `Bearer 61368dbbcbb5042c2508d4434fa4ceca24f45b07 `,
         "Content-Type": "application/json"
     },
     });
@@ -48,11 +48,13 @@ function App() {
     setQuery(search);
     setSearch('');
   }
+  //Redux work
+  const btnClick=useSelector(state=>state.showRepo);
 
   //Main app
   return (
     <div className="App">
-    <h1 className="main-title">Lang-thub</h1>
+    <h1 className="main-title">Lang-thub {btnClick}</h1>
       <form className="search-form" onSubmit={getSearch}>
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
