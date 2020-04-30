@@ -1,5 +1,4 @@
 import React, { useEffect, useState,useRef} from 'react';
-import ProfileCard from './components/profileCard'
 import './App.css';
 import axios from 'axios';
 import Repos from './components/reposArea'
@@ -11,7 +10,10 @@ function App() {
   const [profilequery, setQuery] = useState('');
 
   //api endpoints
-  const profileRequest = `https://api.github.com/users/${profilequery}`
+  
+  const client_id= '351ee579f0e3cda091cc';
+  const client_secret= '7e37d1b77e3c0b9000d7d4b7918c2ce965309b4c'
+  const profileRequest = `https://api.github.com/users/${profilequery}?client_id=${client_id}&client_secret=${client_secret}`
 
   //getting profile
   const isFirstRun = useRef(true);
@@ -48,6 +50,10 @@ function App() {
     setQuery(search);
     setSearch('');
   }
+
+
+
+
   //Main app
   return (
     <div className="App">
