@@ -2,7 +2,7 @@
 
 :root {
   --zero-dp: #1a1b1e;
-  --one-dp: #202125;
+  --one-dp: rgb(33, 34, 38);
   --text-color: #E9EFF6;
 }
 
@@ -57,6 +57,7 @@ body {
 .profile-card {
   width: 20vw;
   height: 100vh;
+  transform: translate(0px,-2vw);
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -70,32 +71,17 @@ body {
   font-size: 100%;
   flex:1;
 }
-@media(max-width:740px)
-{
-  .profile-card{
-    width:99vw;
-  }
-  .content{
-    flex-direction: column;
-    align-items: center;
-  }
-  .search-bar{
-    width:60vw;
-  }
-  .repo-area{
-    width: 99vw;
-  }
-}
 
 .wrapper {
   text-align: center;
-  width: 300px;
+  width: 27vw;
   height: 520px;
   background: var(--one-dp);
   border-radius: 10px;
   padding: 20px 20px 20px 20px;
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
 }
+
 
 .wrapper .profile {
   margin-top: 0.5em;
@@ -220,7 +206,6 @@ body {
   position: relative;
   height:90vh;
   flex:1;
-  border:1px dotted white;
   float: right;
 }
 .repos-list{
@@ -231,24 +216,7 @@ body {
 .cards_item {
   display: flex;
   padding: 0.4rem;
-}
-
-@media (min-width: 40rem) {
-  .cards_item {
-    width: 90%;
-  }
-}
-
-@media (min-width: 56rem) {
-  .cards_item {
-    width: 43.3333%;
-  }
-}
-@media (max-width:740px)
-{
-  .cards_item{
-    width:90%;
-  }
+  align-items: center;
 }
 .card {
   background-color: white;
@@ -280,4 +248,56 @@ body {
   line-height: 1.5;
   margin-bottom: 1.25rem;    
   font-weight: 400;
+}
+.card .btn {
+  color: var(--text-color);
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.568);
+  background: transparent;
+}
+
+.card .btn:hover {
+  background-color: rgba(179, 179, 179, 0.12);
+}
+
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem ) {
+  .cards_item{
+    width: 53.3333%;
+  }
+  .wrapper{
+    width:30vw;
+  }
+}
+@media (max-width:740px)
+{
+  .profile-card{
+    width:99vw;
+  }
+  .wrapper{
+    width:80vw;
+  }
+  .content{
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-bar{
+    width:60vw;
+  }
+  .repo-area{
+    width: 99vw;
+  }
 }
