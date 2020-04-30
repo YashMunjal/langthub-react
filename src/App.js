@@ -8,7 +8,7 @@ function App() {
   const [profile, setProfile] = useState([]);
   const [search, setSearch] = useState('');
   const [profilequery, setQuery] = useState('');
-
+  const [refresh, doRefresh] = useState(0);
   //api endpoints
   
   const client_id= '351ee579f0e3cda091cc';
@@ -24,6 +24,7 @@ function App() {
       setQuery('yashmunjal');
       return;
     }
+    doRefresh(0);
     getProfiles();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profilequery]);
@@ -69,7 +70,7 @@ function App() {
                     <img alt="profile" src={profile.avatar_url} className="thumbnail"></img>
                     <h2 className="name">{profile.login}</h2>
                     <p className="description">{profile.bio}</p>
-                    <button type="button" className="btn">Check Repos</button>
+                    <button type="button" onClick={()=>doRefresh(refresh+1)} className="btn">Check Repos</button>
                 </div>
                 <p className="language">Top Languages</p>
                 <div className="social-icons">
@@ -90,7 +91,7 @@ function App() {
                 </div>
             </div>
         </div>
-        <Repos name={profile.login}>
+        <Repos name={profile.login} refresh={refresh} id={client_id} secret={client_secret}>
         </Repos>
       </div>  
     </div>
