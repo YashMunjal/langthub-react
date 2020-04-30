@@ -3,9 +3,6 @@ import ProfileCard from './components/profileCard'
 import './App.css';
 import axios from 'axios';
 import Repos from './components/reposArea'
-import {useSelector,useDispatch} from 'react-redux'
-import {showRepo} from './actions/index'
-
 
 function App() {
   //Set states
@@ -51,20 +48,42 @@ function App() {
     setQuery(search);
     setSearch('');
   }
-  //Redux work
-  const btnClick=useSelector(state=>state.showRepo);
-  const dispatch=useDispatch();
   //Main app
   return (
     <div className="App">
-    <h1 className="main-title">Lang-thub {btnClick}</h1>
-    <button className="search-button" onClick={()=>dispatch(showRepo(profile.login))}>+</button>
+    <h1 className="main-title">Lang-thub </h1>
       <form className="search-form" onSubmit={getSearch}>
         <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">Search</button>
       </form>
       <div className="content">
-        <ProfileCard name={profile.login} dp={profile.avatar_url} bio={profile.bio}></ProfileCard>
+        <div className="profile-card">
+            <div className="wrapper">
+                <div className="profile">
+                    <img alt="profile" src={profile.avatar_url} className="thumbnail"></img>
+                    <h2 className="name">{profile.login}</h2>
+                    <p className="description">{profile.bio}</p>
+                    <button type="button" className="btn">Check Repos</button>
+                </div>
+                <p className="language">Top Languages</p>
+                <div className="social-icons">
+                    <div className="icon">
+                        <a href=""></a>
+                        <h5>12.8k</h5>
+                    </div>
+
+                    <div className="icon">
+                        <a href="#"></a>
+                        <h5>12.8k</h5>
+                    </div>
+
+                    <div className="icon">
+                        <a href="#"></a>
+                        <h5>12.8k</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
         <Repos name={profile.login}>
         </Repos>
       </div>  
