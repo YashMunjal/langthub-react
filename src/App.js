@@ -53,7 +53,8 @@ function App() {
   }
 
 
-
+//language array
+const languageArray=[];
 
   //Main app
   return (
@@ -80,7 +81,7 @@ function App() {
                     </div>
 
                     <div className="icon">
-                        <a href="#"></a>
+                        <a href="fb.com" ></a>
                         <h5>12.8k</h5>
                     </div>
 

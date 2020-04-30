@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../App.css';
 import axios from 'axios';
 
-const Repos = ({ name, refresh }) => {
+const Repos = ({ name, refresh,id,secret }) => {
     const showHide = () => {
         if(refresh===0){
             document.querySelector('ul').style.display='none' ;
@@ -13,7 +13,7 @@ const Repos = ({ name, refresh }) => {
     }
 
     const [counter,setcounter]=useState(1);
-    const reposLink = `https://api.github.com/users/${name}/repos?per_page=10&page=${counter}`
+    const reposLink = `https://api.github.com/users/${name}/repos?client_id=${id}&client_secret=${secret}&per_page=100&page=${counter}`
     const [repos, setrepos] = useState([]);
 
     const showRepos = async () => {
@@ -35,7 +35,7 @@ const Repos = ({ name, refresh }) => {
     return (
         <div className="repo-area">
             <ul className="repos-list">
-                {repos.map(repo=>(
+                {repos.slice(0+counter,5+counter).map(repo=>(
                     <li key={repo.id} className="cards_item">
                     <div className="card">
                         <div className="card_content">
